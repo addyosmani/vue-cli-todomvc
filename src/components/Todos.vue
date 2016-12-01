@@ -22,9 +22,9 @@
             <strong>{{ remaining }}</strong> {{ remaining | pluralize }} left
             </span>
             <ul class="filters">
-                <li><a href="#/all" :class="{selected : filter === 'all'}" @click.prevent="filter = 'all'">All</a></li>
-                <li><a href="#/active" :class="{selected : filter === 'active'}" @click.prevent="filter = 'active'">Active</a></li>
-                <li><a href="#/completed" :class="{selected : filter === 'completed'}" @click.prevent="filter = 'completed'">Completed</a></li>
+                <li><a href="#/all" :class="{selected: filter == 'all'}" @click="filter = 'all'">All</a></li>
+                <li><a href="#/active" :class="{selected: filter == 'active'}" @click="filter = 'active'">Active</a></li>
+                <li><a href="#/completed" :class="{selected: filter == 'completed'}" @click="filter = 'completed'">Completed</a></li>
             </ul>
             <button class="clear-completed" v-show="completed" @click.prevent="deleteCompleted">Clear Completed</button>
         </footer>

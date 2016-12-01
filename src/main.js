@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import Director from 'director/build/director'
 
 /* eslint-disable no-new */
 window.VueApp = new Vue({
@@ -9,34 +10,19 @@ window.VueApp = new Vue({
     render: h => h(App)
 })
 
+const router = new Director.Router();
 
-// visibility filters
-var filters = {
-  all: function (todos) {
-    return todos
-  },
-  active: function (todos) {
-    return todos.filter(function (todo) {
-      return !todo.completed
-    })
-  },
-  completed: function (todos) {
-    return todos.filter(function (todo) {
-      return todo.completed
-    })
-  }
-}
-
-// handle routing
-function onHashChange () {
-  var visibility = window.location.hash.replace(/#\/?/, '')
-  if (filters[visibility]) {
+['all', 'active', 'completed'].forEach(visibility => {
+  router.on(visibility, () => {
     window.VueApp.filter = visibility;
-  } else {
-    window.location.hash = ''
-    window.VueApp.filter = 'all'
-  }
-}
+  });
+});
 
-window.addEventListener('hashchange', onHashChange)
-onHashChange()
+router.configure({
+  notfound: function () {
+    window.location.hash = '';
+    window.VueApp.filter = 'all';
+  }
+});
+
+router.init();

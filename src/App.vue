@@ -16,7 +16,7 @@ export default {
 </script>
 <style>
   #app {
-    width: 400px;
+    width: 500px;
     margin: 0 40px;
   }
 </style>

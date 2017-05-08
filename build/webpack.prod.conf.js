@@ -7,6 +7,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var env = config.build.env
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -73,7 +74,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: path.join(__dirname, '../src/manifest.json'), to: path.join(config.build.assetsRoot, 'manifest.json') }
+    ])
   ]
 })
 

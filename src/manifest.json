@@ -5,5 +5,8 @@
   },
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "icons": {
+    "128": "icon.png"
+  }
 }

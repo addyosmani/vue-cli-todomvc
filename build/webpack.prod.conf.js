@@ -76,7 +76,8 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['vendor']
     }),
     new CopyWebpackPlugin([
-      { from: path.join(__dirname, '../src/manifest.json'), to: path.join(config.build.assetsRoot, 'manifest.json') }
+      { from: path.join(__dirname, '../src/manifest.json'), to: path.join(config.build.assetsRoot, 'manifest.json') },
+      { from: path.join(__dirname, '../src/assets/icon.png'), to: path.join(config.build.assetsRoot, 'icon.png') }
     ])
   ]
 })

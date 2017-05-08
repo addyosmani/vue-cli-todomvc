@@ -16,7 +16,7 @@
                     <input type="text" class="edit" v-model="todo.title" @keyup.enter="doneEdit" @blur="doneEdit" v-todoFocus="todo === editing"></input>
                 </li>
             </ul>
-        </div>
+        </section>
         <footer class="footer" v-show="todos.length > 0">
             <span class="todo-count">
             <strong>{{ remaining }}</strong> {{ remaining | pluralize }} left
@@ -40,7 +40,6 @@ export default {
             todos: [],
             newTodo: '',
             filter: 'all',
-            allDone: false,
             editing: null
         }
     },

@@ -37,7 +37,10 @@ import Vue from 'vue'
 export default {
     data () {
         return {
-            todos: [],
+            todos: [
+              { title: 'Wash the dog', completed: false },
+              { title: 'Mow the lawn', completed: false }
+            ],
             newTodo: '',
             filter: 'all',
             editing: null

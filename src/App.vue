@@ -14,3 +14,9 @@ export default {
     }
 }
 </script>
+<style>
+  #app {
+    width: 500px;
+    margin: 0 40px;
+  }
+</style>

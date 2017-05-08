@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import Director from 'director/build/director'
+import './todo.css'
 
 /* eslint-disable no-new */
 window.VueApp = new Vue({
